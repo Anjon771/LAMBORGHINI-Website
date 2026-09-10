@@ -1,0 +1,6 @@
+{
+  "name": "Lamborghini Landing Page",
+  "description": "Interactive animated Lamborghini supercars website featuring high-definition imagery, model showroom, V12 engine audio synthesizer, ALA aerodynamics simulator, Ad Personam configurator, and heritage timeline.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

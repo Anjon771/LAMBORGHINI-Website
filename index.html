@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lamborghini — Beyond the Concrete</title>
+  <meta name="description" content="Explore Automobili Lamborghini supercars: Gallardo LP560, Revuelto V12 HPEV, Huracán STO, and Aventador SVJ with interactive ALA aerodynamics, V12 audio synthesizer, and Ad Personam studio.">
+  <meta property="og:title" content="Lamborghini — Beyond the Concrete">
+  <meta property="og:description" content="Explore Automobili Lamborghini supercars: Gallardo LP560, Revuelto V12 HPEV, Huracán STO, and Aventador SVJ.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏎️</text></svg>">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+  <!-- ===== FIXED HEADER & NAVIGATION ===== -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#hero" class="nav__brand" id="nav-brand-logo">
+        <div class="nav__shield">
+          <img src="./assets/img/logo.png" alt="Automobili Lamborghini Shield" class="nav__shield-img" id="nav-brand-shield-img" referrerpolicy="no-referrer">
+        </div>
+        <div class="nav__logo-text">LAMBORGHINI<span>.</span></div>
+      </a>
+
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="#models" class="nav__link" id="nav-link-models">Models</a></li>
+          <li class="nav__item"><a href="#aerodynamics" class="nav__link" id="nav-link-aero">Aerodynamics & Tech</a></li>
+          <li class="nav__item"><a href="#sound" class="nav__link" id="nav-link-sound">Cockpit & Sound</a></li>
+          <li class="nav__item"><a href="#configurator" class="nav__link" id="nav-link-configurator">Ad Personam</a></li>
+          <li class="nav__item"><a href="#heritage" class="nav__link" id="nav-link-heritage">Heritage</a></li>
+        </ul>
+      </div>
+
+      <div class="nav__actions">
+        <!-- V12 Audio Engine Quick Toggle -->
+        <button class="sound-toggle-btn" id="sound-toggle-btn" aria-label="Toggle V12 Engine Sound">
+          <div class="sound-eq">
+            <span class="sound-eq-bar"></span>
+            <span class="sound-eq-bar"></span>
+            <span class="sound-eq-bar"></span>
+            <span class="sound-eq-bar"></span>
+          </div>
+          <span id="sound-btn-text">V12 Sound</span>
+        </button>
+
+        <button class="btn btn--primary btn--sm" id="header-testdrive-btn">
+          Test Drive
+        </button>
+
+        <div class="nav__toggle" id="nav-toggle" aria-label="Toggle Navigation Menu">
+          <ion-icon name="menu-outline"></ion-icon>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== HERO SHOWROOM SECTION ===== -->
+  <section class="hero" id="hero">
+    <div class="hero__watermark">LAMBORGHINI</div>
+    <div class="hero__glow"></div>
+
+    <div class="hero__container container">
+      <!-- Left: Car Stage & Interactive Switcher -->
+      <div class="hero__car-stage">
+        <!-- Model Switcher Pills -->
+        <div class="hero__model-switcher" id="hero-model-pills" role="tablist">
+          <button class="model-pill active" data-model="gallardo" id="pill-gallardo">Gallardo LP560-4</button>
+          <button class="model-pill" data-model="revuelto" id="pill-revuelto">Revuelto V12</button>
+          <button class="model-pill" data-model="huracan" id="pill-huracan">Huracán STO</button>
+          <button class="model-pill" data-model="svj" id="pill-svj">Aventador SVJ</button>
+          <button class="model-pill" data-model="urus" id="pill-urus">Urus Performante</button>
+        </div>
+
+        <!-- Dynamic Car Display -->
+        <div class="hero__car-wrap" id="hero-car-wrap">
+          <img src="./assets/img/lamborghini.png" alt="Lamborghini Gallardo LP560-4" class="hero__car-img" id="hero-car-image" referrerpolicy="no-referrer">
+          <div class="hero__car-shadow"></div>
+        </div>
+      </div>
+
+      <!-- Right: Model Details & Telemetry HUD -->
+      <div class="hero__info">
+        <div class="hero__tag">
+          <span class="badge badge--yellow" id="hero-model-badge">Naturally Aspirated V10</span>
+          <span class="hero__series" id="hero-model-series">Sant'Agata Bolognese</span>
+        </div>
+
+        <h1 class="hero__name" id="hero-car-title">
+          LAMBORGHINI<br>
+          <span id="hero-car-subtitle">GALLARDO LP560-4</span>
+        </h1>
+
+        <p class="hero__desc" id="hero-car-desc">
+          An undeniable benchmark in extreme supercar performance. Powered by a high-revving 5.2-liter naturally aspirated V10 pushing 560 CV through permanent all-wheel drive, engineering pure adrenaline.
+        </p>
+
+        <!-- Dynamic Telemetry HUD -->
+        <div class="telemetry-grid">
+          <div class="telemetry-card">
+            <ion-icon name="speedometer-outline"></ion-icon>
+            <div class="telemetry-val" id="hud-accel">3.7<span class="telemetry-unit">s</span></div>
+            <div class="telemetry-label">0–100 km/h</div>
+          </div>
+
+          <div class="telemetry-card">
+            <ion-icon name="trending-up-outline"></ion-icon>
+            <div class="telemetry-val" id="hud-speed">325<span class="telemetry-unit">km/h</span></div>
+            <div class="telemetry-label">Top Speed</div>
+          </div>
+
+          <div class="telemetry-card">
+            <ion-icon name="flash-outline"></ion-icon>
+            <div class="telemetry-val" id="hud-power">560<span class="telemetry-unit">CV</span></div>
+            <div class="telemetry-label">Max Power</div>
+          </div>
+
+          <div class="telemetry-card">
+            <ion-icon name="pulse-outline"></ion-icon>
+            <div class="telemetry-val" id="hud-rpm">8,000<span class="telemetry-unit">rpm</span></div>
+            <div class="telemetry-label">Max Redline</div>
+          </div>
+        </div>
+
+        <!-- Hero Actions -->
+        <div class="hero__cta-group">
+          <a href="#configurator" class="btn btn--primary" id="hero-cta-configure">
+            <ion-icon name="color-palette-outline"></ion-icon>
+            Configure Model
+          </a>
+          <a href="#sound" class="btn btn--outline" id="hero-cta-sound">
+            <ion-icon name="volume-high-outline"></ion-icon>
+            Ignite V12 Engine
+          </a>
+          <button class="btn btn--outline" id="hero-btn-specs">
+            <ion-icon name="document-text-outline"></ion-icon>
+            Full Blueprint
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MODELS LINEUP SHOWCASE SECTION ===== -->
+  <section class="section" id="models">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__subtitle"><ion-icon name="shield-checkmark-outline"></ion-icon> The Stable</span>
+        <h2 class="section__title">Supercar <span>Lineup</span></h2>
+        <p class="section__desc">From naturally aspirated track weapons to electrified hybrid V12 hypercars, discover Italian uncompromising design and extreme engineering.</p>
+      </div>
+
+      <!-- Filter Controls -->
+      <div class="models-filter" role="tablist">
+        <button class="filter-btn active" data-filter="all" id="filter-all">All Models</button>
+        <button class="filter-btn" data-filter="v12" id="filter-v12">V12 Flagships</button>
+        <button class="filter-btn" data-filter="v10" id="filter-v10">V10 Track Series</button>
+        <button class="filter-btn" data-filter="suv" id="filter-suv">Super SUV</button>
+      </div>
+
+      <!-- Models Grid -->
+      <div class="models-grid" id="models-container">
+
+        <!-- Model 1: Revuelto -->
+        <div class="model-card" data-category="v12" id="card-revuelto">
+          <div class="model-card__img-box">
+            <img src="./assets/img/revuelto.jpg" alt="Lamborghini Revuelto V12" class="model-card__img" referrerpolicy="no-referrer">
+            <div class="model-card__badges">
+              <span class="badge badge--yellow">HPEV Hybrid</span>
+              <span class="badge">V12</span>
+            </div>
+          </div>
+          <div class="model-card__content">
+            <div class="model-card__header">
+              <span class="model-card__category">High Performance Electrified Vehicle</span>
+              <h3 class="model-card__title">Revuelto</h3>
+              <p class="model-card__description">The revolutionary first HPEV plug-in hybrid super sports car combining a 6.5L naturally aspirated V12 with three electric motors.</p>
+            </div>
+            <div class="model-card__specs">
+              <div class="spec-mini-item">
+                <div class="spec-mini-val">1,015<span>CV</span></div>
+                <div class="spec-mini-label">Total Power</div>
+              </div>
+              <div class="spec-mini-item">
+                <div class="spec-mini-val">2.5<span>s</span></div>
+                <div class="spec-mini-label">0-100 km/h</div>
+              </div>
+              <div class="spec-mini-item">
+                <div class="spec-mini-val">&gt;350<span>km/h</span></div>
+                <div class="spec-mini-label">Top Speed</div>
+              </div>
+            </div>
+            <div class="model-card__actions">
+              <button class="btn btn--outline btn--sm view-specs-trigger" data-model-id="revuelto">Full Specs</button>
+              <button class="btn btn--primary btn--sm open-testdrive-trigger" data-model-name="Revuelto">Book Drive</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Model 2: Huracán STO -->
+        <div class="model-card" data-category="v10" id="card-huracan">
+          <div class="model-card__img-box">
+            <img src="./assets/img/huracan.jpg" alt="Lamborghini Huracán STO" class="model-card__img" referrerpolicy="no-referrer">
+            <div class="model-card__badges">
+              <span class="badge badge--yellow">Track Focused</span>
+              <span class="badge">V10</span>
+            </div>
+          </div>
+          <div class="model-card__content">
+            <div class="model-card__header">
+              <span class="model-card__category">Super Trofeo Omologata</span>
+              <h3 class="model-card__title">Huracán STO</h3>
+              <p class="model-card__description">Pure racing heritage translated for the open road. Extreme aerodynamic package, rear-wheel drive, and lightweight carbon fiber Cofango body.</p>
+            </div>
+            <div class="model-card__specs">
+              <div class="spec-mini-item">
+                <div class="spec-mini-val">640<span>CV</span></div>
+                <div class="spec-mini-label">Total Power</div>
+              </div>
+              <div class="spec-mini-item">
+                <div class="spec-mini-val">3.0<span>s</span></div>
+                <div class="spec-mini-label">0-100 km/h</div>
+              </div>
+              <div class="spec-mini-item">
+                <div class="spec-mini-val">310<span>km/h</span></div>
+                <div class="spec-mini-label">Top Speed</div>
+              </div>
+            </div>
+            <div class="model-card__actions">
+              <button class="btn btn--outline btn--sm view-specs-trigger" data-model-id="huracan">Full Specs</button>
+              <button class="btn btn--primary btn--sm open-testdrive-trigger" data-model-name="Huracán STO">Book Drive</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Model 3: Aventador SVJ -->
+        <div class="model-card" data-category="v12" id="card-svj">
+          <div class="model-card__img-box">
+            <img src="./assets/img/svj.jpg" alt="Lamborghini Aventador SVJ" class="model-card__img" referrerpolicy="no-referrer">
+            <div class="model-card__badges">
+              <span class="badge badge--yellow">Record Breaker</span>
+              <span class="badge">ALA 2.0</span>
+            </div>
+          </div>
+          <div class="model-card__content">
+            <div class="model-card__header">
+              <span class="model-card__category">SuperVeloce Jota</span>
+              <h3 class="model-card__title">Aventador SVJ</h3>
+              <p class="model-card__description">Nürburgring production car lap-time conqueror with active aerodynamics (ALA 2.0), carbon monocoque, and screaming 770 CV naturally aspirated V12.</p>
+            </div>
+            <div class="model-card__specs">
+              <div class="spec-mini-item">
+                <div class="spec-mini-val">770<span>CV</span></div>
+                <div class="spec-mini-label">Total Power</div>
+              </div>
+              <div class="spec-mini-item">
+                <div class="spec-mini-val">2.8<span>s</span></div>
+                <div class="spec-mini-label">0-100 km/h</div>
+              </div>
+              <div class="spec-mini-item">
+                <div class="spec-mini-val">&gt;352<span>km/h</span></div>
+                <div class="spec-mini-label">Top Speed</div>
+              </div>
+            </div>
+            <div class="model-card__actions">
+              <button class="btn btn--outline btn--sm view-specs-trigger" data-model-id="svj">Full Specs</button>
+              <button class="btn btn--primary btn--sm open-testdrive-trigger" data-model-name="Aventador SVJ">Book Drive</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Model 4: Urus Performante -->
+        <div class="model-card" data-category="suv" id="card-urus">
+          <div class="model-card__img-box">
+            <img src="./assets/img/urus.jpg" alt="Lamborghini Urus Performante" class="model-card__img" referrerpolicy="no-referrer">
+            <div class="model-card__badges">
+              <span class="badge badge--yellow">Super SUV</span>
+              <span class="badge">Twin-Turbo V8</span>
+            </div>
+          </div>
+          <div class="model-card__content">
+            <div class="model-card__header">
+              <span class="model-card__category">Super Sport Utility Vehicle</span>
+              <h3 class="model-card__title">Urus Performante</h3>
+              <p class="model-card__description">Raising the bar of performance SUV dynamics. Features lowered steel spring chassis, carbon fiber aerodynamic wing, and specialized Rally Mode.</p>
+            </div>
+            <div class="model-card__specs">
+              <div class="spec-mini-item">
+                <div class="spec-mini-val">666<span>CV</span></div>
+                <div class="spec-mini-label">Total Power</div>
+              </div>
+              <div class="spec-mini-item">
+                <div class="spec-mini-val">3.3<span>s</span></div>
+                <div class="spec-mini-label">0-100 km/h</div>
+              </div>
+              <div class="spec-mini-item">
+                <div class="spec-mini-val">306<span>km/h</span></div>
+                <div class="spec-mini-label">Top Speed</div>
+              </div>
+            </div>
+            <div class="model-card__actions">
+              <button class="btn btn--outline btn--sm view-specs-trigger" data-model-id="urus">Full Specs</button>
+              <button class="btn btn--primary btn--sm open-testdrive-trigger" data-model-name="Urus Performante">Book Drive</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Model 5: Gallardo LP560-4 -->
+        <div class="model-card" data-category="v10" id="card-gallardo">
+          <div class="model-card__img-box">
+            <img src="./assets/img/lamborghini.png" alt="Lamborghini Gallardo LP560-4" class="model-card__img" style="background:#0e0e11; object-fit:contain; padding:1.5rem;" referrerpolicy="no-referrer">
+            <div class="model-card__badges">
+              <span class="badge badge--yellow">The Legend</span>
+              <span class="badge">AWD V10</span>
+            </div>
+          </div>
+          <div class="model-card__content">
+            <div class="model-card__header">
+              <span class="model-card__category">Sant'Agata Icon</span>
+              <h3 class="model-card__title">Gallardo LP560-4</h3>
+              <p class="model-card__description">The modern icon that propelled Lamborghini into a new era. Featuring direct fuel injection (IDS), razor-sharp lines, and intoxicating V10 acoustics.</p>
+            </div>
+            <div class="model-card__specs">
+              <div class="spec-mini-item">
+                <div class="spec-mini-val">560<span>CV</span></div>
+                <div class="spec-mini-label">Total Power</div>
+              </div>
+              <div class="spec-mini-item">
+                <div class="spec-mini-val">3.7<span>s</span></div>
+                <div class="spec-mini-label">0-100 km/h</div>
+              </div>
+              <div class="spec-mini-item">
+                <div class="spec-mini-val">325<span>km/h</span></div>
+                <div class="spec-mini-label">Top Speed</div>
+              </div>
+            </div>
+            <div class="model-card__actions">
+              <button class="btn btn--outline btn--sm view-specs-trigger" data-model-id="gallardo">Full Specs</button>
+              <button class="btn btn--primary btn--sm open-testdrive-trigger" data-model-name="Gallardo LP560-4">Book Drive</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ALA AERODYNAMICS & CARBON TECHNOLOGY SECTION ===== -->
+  <section class="section ala-section" id="aerodynamics">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__subtitle"><ion-icon name="analytics-outline"></ion-icon> Aerodinamica Lamborghini Attiva</span>
+        <h2 class="section__title">Active <span>Aero & ALA 2.0</span></h2>
+        <p class="section__desc">Experience the patented active aerodynamic system that manipulates airflow dynamically to deliver unmatched downforce or minimum drag resistance.</p>
+      </div>
+
+      <div class="ala-container">
+        <!-- Interactive Wind Tunnel Simulator -->
+        <div class="ala-simulator">
+          <div class="ala-sim-header">
+            <span class="ala-sim-title"><ion-icon name="hardware-chip-outline"></ion-icon> Wind Tunnel Telemetry</span>
+            <span class="badge badge--yellow" id="ala-status-badge">Simulation Active</span>
+          </div>
+
+          <!-- Real Supercar Model Selector for Wind Tunnel -->
+          <div class="ala-model-selector" id="ala-model-selector">
+            <span class="ala-model-selector__label"><ion-icon name="car-sport-outline"></ion-icon> Real Car:</span>
+            <div class="ala-model-pills" role="tablist" aria-label="Select Car for Wind Tunnel">
+              <button class="ala-model-pill active" data-car="gallardo" id="ala-pill-gallardo" type="button">Gallardo LP560</button>
+              <button class="ala-model-pill" data-car="svj" id="ala-pill-svj" type="button">Aventador SVJ</button>
+              <button class="ala-model-pill" data-car="huracan" id="ala-pill-huracan" type="button">Huracán STO</button>
+              <button class="ala-model-pill" data-car="revuelto" id="ala-pill-revuelto" type="button">Revuelto V12</button>
+              <button class="ala-model-pill" data-car="urus" id="ala-pill-urus" type="button">Urus Performante</button>
+            </div>
+          </div>
+
+          <div class="ala-canvas-wrap" id="ala-canvas-wrap">
+            <!-- Wind Tunnel Atmospheric Chamber Background -->
+            <div class="ala-tunnel-env">
+              <div class="ala-tunnel-grid"></div>
+              <div class="ala-tunnel-marker ala-tunnel-marker--inlet">
+                <ion-icon name="chevron-forward-outline"></ion-icon> INLET 300 KM/H
+              </div>
+              <div class="ala-tunnel-marker ala-tunnel-marker--exhaust">
+                CFD EXHAUST <ion-icon name="cellular-outline"></ion-icon>
+              </div>
+            </div>
+
+            <!-- Real Supercar Display Stage -->
+            <div class="ala-car-stage" id="ala-car-stage">
+              <img src="./assets/img/lamborghini.png" alt="Lamborghini Aero Wind Tunnel Test" class="ala-real-car-img" id="ala-real-car-img" referrerpolicy="no-referrer">
+              <div class="ala-car-ground-shadow"></div>
+              <div class="ala-aero-pressure-halo" id="ala-pressure-halo"></div>
+            </div>
+
+            <!-- CFD Streamlines Airflow Canvas (Selected Element) -->
+            <canvas id="alaCanvas"></canvas>
+
+            <!-- Chamber Badges -->
+            <div class="ala-wing-status" id="ala-wing-status">Flaps: Closed (Max Downforce)</div>
+            <div class="ala-model-tag" id="ala-model-tag">GALLARDO LP560-4 &bull; AERO PROFILE</div>
+          </div>
+
+          <!-- Aero Modes -->
+          <div class="ala-modes">
+            <button class="ala-mode-btn active" data-mode="downforce" id="btn-mode-downforce">
+              High Downforce
+            </button>
+            <button class="ala-mode-btn" data-mode="lowdrag" id="btn-mode-lowdrag">
+              Low Drag (Speed)
+            </button>
+            <button class="ala-mode-btn" data-mode="vectoring" id="btn-mode-vectoring">
+              Aero-Vectoring
+            </button>
+          </div>
+
+          <!-- Aero Telemetry Readouts -->
+          <div class="ala-telemetry">
+            <div class="ala-tel-card">
+              <div class="ala-tel-num" id="ala-downforce-val">490 kg</div>
+              <div class="ala-tel-label">Downforce @ 300km/h</div>
+            </div>
+            <div class="ala-tel-card">
+              <div class="ala-tel-num" id="ala-drag-val">0.38 Cd</div>
+              <div class="ala-tel-label">Drag Coefficient</div>
+            </div>
+            <div class="ala-tel-card">
+              <div class="ala-tel-num" id="ala-lateral-val">1.85 G</div>
+              <div class="ala-tel-label">Cornering Grip</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Carbon Engineering Highlights -->
+        <div class="tech-highlights">
+          <div class="tech-card">
+            <div class="tech-card__icon"><ion-icon name="cube-outline"></ion-icon></div>
+            <div class="tech-card__content">
+              <h4>Carbon Monofuselage</h4>
+              <p>Ultra-lightweight aerospace carbon fiber composite chassis delivering +25% higher torsional stiffness while reducing overall structural weight.</p>
+            </div>
+          </div>
+
+          <div class="tech-card">
+            <div class="tech-card__icon"><ion-icon name="disc-outline"></ion-icon></div>
+            <div class="tech-card__content">
+              <h4>Carbon-Ceramic CCB Brakes</h4>
+              <p>10-piston aluminum monobloc front calipers biting 410mm ceramic discs, stopping from 100 km/h to absolute zero in a staggering 30 meters.</p>
+            </div>
+          </div>
+
+          <div class="tech-card">
+            <div class="tech-card__icon"><ion-icon name="git-compare-outline"></ion-icon></div>
+            <div class="tech-card__content">
+              <h4>Pushrod Magneto-Rheological Suspension</h4>
+              <p>Racing-inspired horizontal damper architecture constantly adapting magnetic fluid viscosity within milliseconds to counteract body roll.</p>
+            </div>
+          </div>
+
+          <div class="tech-card">
+            <div class="tech-card__icon"><ion-icon name="flame-outline"></ion-icon></div>
+            <div class="tech-card__content">
+              <h4>Active Airflow Vectoring</h4>
+              <p>Electronically controlled micro-flaps divert airflow to either the inner or outer wing section during high-speed cornering, eliminating understeer.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== COCKPIT & V12 ENGINE SOUND SIMULATOR SECTION ===== -->
+  <section class="section cockpit-section" id="sound">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__subtitle"><ion-icon name="radio-outline"></ion-icon> Visceral Acoustic Symphony</span>
+        <h2 class="section__title">Cockpit & <span>V12 Audio</span> Engine</h2>
+        <p class="section__desc">Flip open the missile launch switch, ignite the naturally aspirated V12, and hold the throttle to experience genuine acoustic harmonics synthesized in real time.</p>
+      </div>
+
+      <div class="cockpit-grid">
+        <!-- Visual Cockpit Preview -->
+        <div class="cockpit-visual">
+          <img src="./assets/img/cockpit.jpg" alt="Lamborghini fighter-jet cockpit" referrerpolicy="no-referrer">
+          <div class="cockpit-overlay">
+            <span class="cockpit-badge">Aeronautical Ergonomics</span>
+            <h3 class="cockpit-title">Fighter Jet Cockpit Experience</h3>
+            <p style="font-size:0.85rem; color:#b7b7be; margin-top:0.25rem;">
+              Crafted from forged carbon fiber, Alcantara, and anodized aluminum with the iconic red safety missile-cover ignition switch.
+            </p>
+          </div>
+        </div>
+
+        <!-- Synthesizer & Tachometer Gauge -->
+        <div class="sound-synthesizer">
+          <div class="synth-header">
+            <div class="synth-engine-tag">
+              <ion-icon name="flame"></ion-icon>
+              <span>6.5L V12 Synthesizer</span>
+            </div>
+            <span class="badge badge--yellow" id="synth-status-tag">Engine Cold</span>
+          </div>
+
+          <!-- Tachometer Arc Display -->
+          <div class="tachometer-wrap">
+            <svg class="tacho-svg" viewBox="0 0 260 150">
+              <defs>
+                <linearGradient id="tachoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#00E676" />
+                  <stop offset="60%" stop-color="#EFD50C" />
+                  <stop offset="90%" stop-color="#ED4C50" />
+                </linearGradient>
+              </defs>
+              <!-- Background Arc -->
+              <path class="tacho-arc-bg" d="M 30 135 A 100 100 0 0 1 230 135" />
+              <!-- Active Colored Arc -->
+              <path class="tacho-arc-progress" id="tacho-progress-path" d="M 30 135 A 100 100 0 0 1 230 135" />
+              <!-- Gauge Needle -->
+              <line class="tacho-needle" id="tacho-needle" x1="130" y1="140" x2="45" y2="135" stroke="#ED4C50" stroke-width="4" stroke-linecap="round" />
+              <circle cx="130" cy="140" r="8" fill="#fff" />
+            </svg>
+
+            <!-- Digital HUD Center -->
+            <div class="tacho-center-hud">
+              <div class="tacho-rpm-val" id="synth-rpm-display">0</div>
+              <div class="tacho-rpm-unit">RPM x 1000</div>
+              <div class="tacho-gear-badge" id="synth-gear-display">GEAR: P</div>
+            </div>
+          </div>
+
+          <!-- Dual Exhaust Flame Backfire FX -->
+          <div class="exhaust-flame-box">
+            <div class="exhaust-pipe">
+              <div class="flame" id="flame-left"></div>
+            </div>
+            <div style="font-family:var(--tech-font); font-size:0.75rem; color:var(--text-muted); text-transform:uppercase;">
+              Titanium Dual Exhaust
+            </div>
+            <div class="exhaust-pipe">
+              <div class="flame" id="flame-right"></div>
+            </div>
+          </div>
+
+          <!-- Ignition & Throttle Controls -->
+          <div class="synth-controls">
+            <!-- Start / Stop Engine Button -->
+            <button class="fighter-start-btn" id="fighter-start-btn">
+              <ion-icon name="power-outline"></ion-icon>
+              <span id="fighter-btn-label">Flip & Start Engine</span>
+            </button>
+
+            <!-- Hold To Rev Accelerator -->
+            <button class="rev-pedal-btn" id="rev-pedal-btn" disabled>
+              Hold Throttle to Rev (or Spacebar)
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== AD PERSONAM STUDIO (CONFIGURATOR) SECTION ===== -->
+  <section class="section configurator-section" id="configurator">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__subtitle"><ion-icon name="color-wand-outline"></ion-icon> Bespoke Customization</span>
+        <h2 class="section__title">Ad Personam <span>Studio</span></h2>
+        <p class="section__desc">Every Lamborghini is unique. Tailor signature paints, forged rims, and ceramic calipers to design your bespoke masterpiece.</p>
+      </div>
+
+      <div class="studio-grid">
+        <!-- Live Visualizer Viewport -->
+        <div class="studio-viewport" id="studio-viewport">
+          <div class="studio-badge">
+            <span class="badge badge--yellow" id="studio-selected-model-tag">Gallardo LP560-4 Studio</span>
+          </div>
+
+          <div class="studio-car-display">
+            <img src="./assets/img/lamborghini.png" alt="Configurator Car" class="studio-car-img" id="studio-car-img" referrerpolicy="no-referrer">
+            <div class="studio-lighting-glow" id="studio-lighting-glow"></div>
+          </div>
+
+          <div class="studio-selected-summary">
+            <div>
+              <div class="studio-color-name" id="studio-color-label">Giallo Inti (Electric Yellow)</div>
+              <div style="font-size:0.75rem; color:var(--text-muted);" id="studio-wheel-label">Leirion Forged 20" Bronze</div>
+            </div>
+            <div class="studio-code" id="studio-build-code">LAMBO-AP-771</div>
+          </div>
+        </div>
+
+        <!-- Controls Sidebar -->
+        <div class="studio-controls">
+          <!-- Paint Color Selection -->
+          <div class="ctrl-group">
+            <div class="ctrl-label">Exterior Paint <span id="label-paint-val">Giallo Inti</span></div>
+            <div class="swatches-grid" id="swatches-container">
+              <div class="color-swatch active" data-color="#EFD50C" data-hue="0" data-name="Giallo Inti" style="background:#EFD50C;" title="Giallo Inti"></div>
+              <div class="color-swatch" data-color="#00E676" data-hue="75" data-name="Verde Mantis" style="background:#00E676;" title="Verde Mantis"></div>
+              <div class="color-swatch" data-color="#FF6600" data-hue="335" data-name="Arancio Borealis" style="background:#FF6600;" title="Arancio Borealis"></div>
+              <div class="color-swatch" data-color="#00E5FF" data-hue="145" data-name="Blu Cepheus" style="background:#00E5FF;" title="Blu Cepheus"></div>
+              <div class="color-swatch" data-color="#ED4C50" data-hue="305" data-name="Rosso Mars" style="background:#ED4C50;" title="Rosso Mars"></div>
+              <div class="color-swatch" data-color="#787882" data-hue="0" data-grayscale="1" data-name="Grigio Telesto" style="background:#787882;" title="Grigio Telesto"></div>
+              <div class="color-swatch" data-color="#1A1A1E" data-hue="0" data-brightness="0.4" data-name="Nero Nemesis" style="background:#1A1A1E;" title="Nero Nemesis"></div>
+              <div class="color-swatch" data-color="#F2F2F5" data-hue="0" data-brightness="1.5" data-grayscale="1" data-name="Bianco Monocerus" style="background:#F2F2F5;" title="Bianco Monocerus"></div>
+            </div>
+          </div>
+
+          <!-- Paint Finish -->
+          <div class="ctrl-group">
+            <div class="ctrl-label">Body Finish <span id="label-finish-val">Gloss Metallic</span></div>
+            <div class="finish-toggle" id="finish-toggle-group">
+              <button class="finish-btn active" data-finish="gloss">Gloss</button>
+              <button class="finish-btn" data-finish="matte">Matte</button>
+              <button class="finish-btn" data-finish="carbon">Carbon PKG</button>
+            </div>
+          </div>
+
+          <!-- Wheels -->
+          <div class="ctrl-group">
+            <div class="ctrl-label">Rims & Wheels <span id="label-wheel-val">Leirion Forged</span></div>
+            <div class="wheels-grid" id="wheels-toggle-group">
+              <button class="wheel-btn active" data-wheel="leirion">Leirion Bronze</button>
+              <button class="wheel-btn" data-wheel="dianthus">Dianthus Black</button>
+              <button class="wheel-btn" data-wheel="veneno">Veneno Silver</button>
+            </div>
+          </div>
+
+          <!-- Calipers -->
+          <div class="ctrl-group">
+            <div class="ctrl-label">Brake Caliper Color <span id="label-caliper-val">Giallo</span></div>
+            <div class="caliper-swatches" id="caliper-swatches-group">
+              <div class="caliper-swatch active" data-caliper="Giallo" style="background:#EFD50C;"></div>
+              <div class="caliper-swatch" data-caliper="Arancio" style="background:#FF6600;"></div>
+              <div class="caliper-swatch" data-caliper="Verde" style="background:#00E676;"></div>
+              <div class="caliper-swatch" data-caliper="Rosso" style="background:#ED4C50;"></div>
+              <div class="caliper-swatch" data-caliper="Nero" style="background:#18181b;"></div>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div style="display:flex; flex-direction:column; gap:0.75rem; margin-top:0.5rem;">
+            <button class="btn btn--primary" id="save-config-btn">
+              <ion-icon name="bookmark-outline"></ion-icon>
+              Save Configuration
+            </button>
+            <button class="btn btn--outline" id="inquire-config-btn">
+              <ion-icon name="mail-outline"></ion-icon>
+              Request VIP Quotation
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HERITAGE & TIMELINE SECTION ===== -->
+  <section class="section heritage-section" id="heritage">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__subtitle"><ion-icon name="time-outline"></ion-icon> Born from Defiance</span>
+        <h2 class="section__title">The Raging Bull <span>Heritage</span></h2>
+        <p class="section__desc">In 1963, Ferruccio Lamborghini resolved to craft the world's most ferocious and technically advanced sports cars. Explore sixty years of legendary milestones.</p>
+      </div>
+
+      <div class="timeline">
+        <!-- 1966 Miura -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">1966</div>
+            <h3 class="timeline-car-name">Miura P400</h3>
+            <p class="timeline-desc">Designed by Marcello Gandini, the Miura introduced the transverse mid-engine V12 layout, coining the very term "supercar" and leaving competitors stunned.</p>
+          </div>
+        </div>
+
+        <!-- 1974 Countach -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">1974</div>
+            <h3 class="timeline-car-name">Countach LP400</h3>
+            <p class="timeline-desc">The wedge-shaped futuristic sensation with pioneering scissor doors. A design so daring it adorned bedroom posters worldwide for over two decades.</p>
+          </div>
+        </div>
+
+        <!-- 1990 Diablo -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">1990</div>
+            <h3 class="timeline-car-name">Diablo</h3>
+            <p class="timeline-desc">The first production Lamborghini capable of exceeding 200 mph (325 km/h). Later equipped with the VT (Viscous Traction) all-wheel drive system.</p>
+          </div>
+        </div>
+
+        <!-- 2003 Gallardo -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">2003</div>
+            <h3 class="timeline-car-name">Gallardo</h3>
+            <p class="timeline-desc">The legendary high-revving 5.0L and 5.2L V10 that redefined usability, AWD traction, and commercial success with over 14,000 units delivered globally.</p>
+          </div>
+        </div>
+
+        <!-- 2011 Aventador -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">2011</div>
+            <h3 class="timeline-car-name">Aventador</h3>
+            <p class="timeline-desc">Full carbon fiber monocoque passenger cell, pushrod suspension, and pure naturally aspirated 6.5L V12 generating up to 770 CV in the ultimate SVJ edition.</p>
+          </div>
+        </div>
+
+        <!-- 2023+ Revuelto -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">Today</div>
+            <h3 class="timeline-car-name">Revuelto</h3>
+            <p class="timeline-desc">The dawn of Direzione Cor Tauri: the V12 High Performance Electrified Vehicle (HPEV) delivering 1,015 CV with zero carbon compromise.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="nav__brand">
+            <div class="nav__shield">
+              <img src="./assets/img/logo.png" alt="Automobili Lamborghini Shield" class="nav__shield-img" referrerpolicy="no-referrer">
+            </div>
+            <div class="nav__logo-text">LAMBORGHINI<span>.</span></div>
+          </div>
+          <p>Automobili Lamborghini S.p.A. — Sant'Agata Bolognese (BO), Italy. Driving the future of super sports cars with unyielding design and technical mastery.</p>
+          <div style="display:flex; gap:1rem; font-size:1.4rem; color:var(--text-color);">
+            <a href="#" aria-label="Instagram"><ion-icon name="logo-instagram"></ion-icon></a>
+            <a href="#" aria-label="YouTube"><ion-icon name="logo-youtube"></ion-icon></a>
+            <a href="#" aria-label="Twitter"><ion-icon name="logo-twitter"></ion-icon></a>
+            <a href="#" aria-label="LinkedIn"><ion-icon name="logo-linkedin"></ion-icon></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Models</h4>
+          <div class="footer-links">
+            <a href="#models">Revuelto HPEV</a>
+            <a href="#models">Huracán STO</a>
+            <a href="#models">Aventador SVJ</a>
+            <a href="#models">Urus Performante</a>
+            <a href="#models">Gallardo Heritage</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Innovation</h4>
+          <div class="footer-links">
+            <a href="#aerodynamics">ALA 2.0 Aerodynamics</a>
+            <a href="#aerodynamics">Carbon Monofuselage</a>
+            <a href="#sound">V12 Engine Acoustics</a>
+            <a href="#configurator">Ad Personam Atelier</a>
+            <a href="#heritage">Museum & Heritage</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>VIP Bulletin</h4>
+          <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:0.75rem;">Receive private invitations to world premieres and exclusive track events.</p>
+          <form class="footer-newsletter" id="newsletter-form">
+            <input type="email" placeholder="Enter VIP email" required class="footer-input" id="newsletter-email">
+            <button type="submit" class="btn btn--primary btn--sm" id="newsletter-submit-btn">Join</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-disclaimer">
+        *Consumption and emissions values of the vehicles displayed: Revuelto: Fuel consumption combined: 11.86 l/100km; Power consumption combined: 10.1 kWh/100 km; CO2 emissions combined: 276 g/km (WLTP). Huracán STO: Fuel consumption combined: 13.9 l/100km; CO2 emissions combined: 331 g/km. Values are determined according to the WLTP (Worldwide Harmonized Light Vehicles Test Procedure) test cycle.
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Automobili Lamborghini S.p.A. All rights reserved.</div>
+        <div style="display:flex; gap:1.5rem;">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Legal Notice</a>
+          <a href="#">Cookie Settings</a>
+          <a href="#">WLTP Details</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== VIP TEST DRIVE APPOINTMENT MODAL ===== -->
+  <div class="modal-backdrop" id="test-drive-modal" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <div class="modal-close-btn" id="close-testdrive-modal">&times;</div>
+      <div class="modal-header">
+        <span class="badge badge--yellow">Concierge Service</span>
+        <h3 class="modal-title" style="margin-top:0.5rem;">Private Test Drive Request</h3>
+        <p style="font-size:0.88rem; color:var(--text-color); margin-top:0.25rem;">
+          Schedule an exclusive closed-circuit track test drive or bespoke showroom consultation.
+        </p>
+      </div>
+
+      <form class="modal-form" id="test-drive-form">
+        <div class="form-group">
+          <label class="form-label" for="td-model-select">Selected Model</label>
+          <select class="form-select" id="td-model-select" required>
+            <option value="Revuelto V12 HPEV">Lamborghini Revuelto (1,015 CV)</option>
+            <option value="Huracán STO">Lamborghini Huracán STO (640 CV)</option>
+            <option value="Aventador SVJ">Lamborghini Aventador SVJ (770 CV)</option>
+            <option value="Urus Performante">Lamborghini Urus Performante (666 CV)</option>
+            <option value="Gallardo LP560-4">Lamborghini Gallardo LP560-4 (560 CV)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="td-dealer-select">Atelier Location</label>
+          <select class="form-select" id="td-dealer-select" required>
+            <option value="Sant'Agata Bolognese HQ, Italy">Sant'Agata Bolognese HQ, Italy (Factory)</option>
+            <option value="Beverly Hills, California">Beverly Hills, California</option>
+            <option value="Dubai Marina, UAE">Dubai Marina, UAE</option>
+            <option value="Ginza, Tokyo, Japan">Ginza, Tokyo, Japan</option>
+            <option value="Mayfair, London, UK">Mayfair, London, UK</option>
+            <option value="Zurich, Switzerland">Zurich, Switzerland</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="td-name">Full Name</label>
+            <input type="text" class="form-input" id="td-name" placeholder="e.g. Marcus Vance" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="td-phone">Phone Number</label>
+            <input type="tel" class="form-input" id="td-phone" placeholder="+1 (555) 000-0000" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="td-email">Corporate / VIP Email</label>
+            <input type="email" class="form-input" id="td-email" placeholder="name@domain.com" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="td-date">Preferred Date</label>
+            <input type="date" class="form-input" id="td-date" required>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn--primary" style="width:100%; margin-top:0.5rem;" id="submit-testdrive-btn">
+          Confirm VIP Appointment
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===== TECHNICAL BLUEPRINT & SPECS MODAL ===== -->
+  <div class="modal-backdrop" id="specs-modal" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <div class="modal-close-btn" id="close-specs-modal">&times;</div>
+      <div class="modal-header">
+        <span class="badge badge--yellow" id="specs-modal-badge">Engineering Dossier</span>
+        <h3 class="modal-title" id="specs-modal-title" style="margin-top:0.5rem;">Technical Blueprint</h3>
+        <p style="font-size:0.88rem; color:var(--text-color); margin-top:0.25rem;" id="specs-modal-subtitle">
+          Official factory telemetry data from Sant'Agata Bolognese.
+        </p>
+      </div>
+
+      <table class="specs-table">
+        <tbody id="specs-table-body">
+          <!-- Populated dynamically via JS -->
+        </tbody>
+      </table>
+
+      <div style="margin-top:1.5rem; display:flex; gap:1rem;">
+        <button class="btn btn--primary btn--sm" id="specs-modal-configure-btn" style="flex:1;">
+          Configure In Studio
+        </button>
+        <button class="btn btn--outline btn--sm" id="specs-modal-testdrive-btn" style="flex:1;">
+          Request Drive
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- IONICONS -->
+  <script type="module" src="https://unpkg.com/ionicons@7.2.1/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.2.1/dist/ionicons/ionicons.js"></script>
+
+  <!-- MAIN JS -->
+  <script type="module" src="assets/js/main.js"></script>
+
+  <!-- Universal GitHub Pages & Subdirectory Image Safety Net -->
+  <script>
+    (function () {
+      // Capture error events for any <img> on the page, including dynamically loaded images
+      window.addEventListener('error', function (e) {
+        var target = e.target;
+        if (!target || target.tagName !== 'IMG') return;
+
+        var attempts = parseInt(target.getAttribute('data-err-attempt') || '0', 10);
+        if (attempts >= 5) return;
+        target.setAttribute('data-err-attempt', String(attempts + 1));
+
+        var currentSrc = target.getAttribute('src') || target.src || '';
+        var cleanFilename = currentSrc.split('/').pop().split('?')[0];
+        // Strip Vite hash if present, e.g. "huracan-CR-hDf6X.jpg" -> "huracan.jpg"
+        var unhashed = cleanFilename.replace(/-[A-Za-z0-9_-]{8}\./, '.');
+
+        var candidates = [
+          './assets/img/' + unhashed,
+          './assets/images/' + unhashed,
+          './assets/' + cleanFilename,
+          new URL('assets/img/' + unhashed, document.baseURI).href,
+          new URL('assets/images/' + unhashed, document.baseURI).href
+        ];
+
+        var nextSrc = candidates[attempts];
+        if (nextSrc && nextSrc !== currentSrc) {
+          target.src = nextSrc;
+        }
+      }, true);
+    })();
+  </script>
+</body>
+</html>

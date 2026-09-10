@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Landing page Lamborghini</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏎️</text></svg>"
+    />
+    <link rel="stylesheet" href="../scss/main.scss" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav container">
+        <a href="#" class="nav__logo"> Lamborghini </a>
+
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li class="nav__item"><a href="" class="nav__link">Models</a></li>
+            <li class="nav__item"><a href="" class="nav__link">Brand</a></li>
+            <li class="nav__item"><a href="" class="nav__link">Store</a></li>
+            <li class="nav__item">
+              <a href="" class="nav__link">Experience</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="nav__toggle" id="nav__toggle">
+          <ion-icon name="menu-outline"></ion-icon>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main container">
+      <div class="home grid">
+        <h1 class="home__title">LAMBORGHINI</h1>
+
+        <div class="home__img">
+          <img src="../img/lamborghini.png" alt="" />
+        </div>
+
+        <div class="home__information">
+          <h2 class="home__subtitle">LAMBORGHINI<br />GALLARDO LP560</h2>
+          <p class="home__description">
+            Lorem ipsum dolor sit amet consect adipiscing elit, commodo
+            tristique id quisque lobortis facilisi feugiat
+          </p>
+        </div>
+
+        <div class="box">
+          <div class="box__content box__medium">
+            <ion-icon name="speedometer-outline" class="icon-box"></ion-icon>
+            <h3 class="box__medium-title inline">3.7</h3>
+            <span class="box__medium-description block">Sec.</span>
+            <span class="box__medium-detail">0-100 km/h</span>
+          </div>
+
+          <div>
+            <div class="box__content box__small">
+              <ion-icon
+                name="trending-up-outline"
+                class="icon-box icon-box--small"
+              ></ion-icon>
+              <h3 class="box__small-title inline">325</h3>
+              <span class="box__small-description block">km/h</span>
+              <span class="box__small-detail">Top Speed</span>
+            </div>
+            <div class="box__content box__small">
+              <ion-icon
+                name="car-sport-outline"
+                class="icon-box icon-box--small"
+              ></ion-icon>
+              <h3 class="box__small-title inline">8.000</h3>
+              <span class="box__small-description block">r.p.m</span>
+              <span class="box__small-detail">Power</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ICONOS -->
+    <script
+      src="https://unpkg.com/ionicons@7.2.1/dist/ionicons.js"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- GSAP -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+      integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- MAIN -->
+    <script src="../js/main.js" type="module"></script>
+  </body>
+</html>
